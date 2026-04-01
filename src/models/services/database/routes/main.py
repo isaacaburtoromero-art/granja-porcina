@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from datetime import datetime
 
-URI='mongodb+srv://Maikel:Maikelbq@cluster0.aqorakb.mongodb.net/?appName=Cluster0'
+URI='mongodb+srv://Maikel:contraseña@cluster0.aqorakb.mongodb.net/?appName=Cluster0'
 client= MongoClient(URI)
 
 class ConexionDB:
@@ -173,7 +173,7 @@ p1=Lote("2", "2026-03-31", 4, 34, "2", "69cc71f9c4894d7629dd4154")
 #p1.eliminar()from pymongo import MongoClient
 from datetime import datetime
 
-URI='mongodb+srv://Maikel:Maikelbq@cluster0.aqorakb.mongodb.net/?appName=Cluster0'
+URI='mongodb+srv://Maikel:contraseña@cluster0.aqorakb.mongodb.net/?appName=Cluster0'
 client= MongoClient(URI)
 
 class ConexionDB:
