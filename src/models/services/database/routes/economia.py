@@ -17,9 +17,6 @@ class ModuloEconomia:
 
     async def registrar_datos(self, datos_lote):
 
-        # =========================
-        # CÁLCULOS AUTOMÁTICOS
-        # =========================
 
         costo_total = sum(datos_lote["costos"].values())
         ingreso_total = sum(datos_lote["ingresos"].values())
@@ -41,19 +38,10 @@ class ModuloEconomia:
         }
 
 
-        # =========================
-        # GUARDAR EN MONGODB
-        # =========================
-
         await self.coleccion.insert_one(datos_lote)
 
         print("Datos guardados correctamente en MongoDB")
         print("Rentabilidad:", rentabilidad)
-
-
-        # =========================
-        # GRÁFICO COSTOS VS INGRESOS
-        # =========================
 
         plt.bar(
             ["Costos", "Ingresos"],
@@ -63,11 +51,6 @@ class ModuloEconomia:
         plt.title(f"Costos vs Ingresos ({datos_lote['lote']})")
         plt.show()
 
-
-        # =========================
-        # GRÁFICO ENGORDE
-        # =========================
-
         plt.bar(
             ["Peso inicial", "Peso final"],
             [datos_lote["peso_inicial"], datos_lote["peso_final"]]
@@ -76,10 +59,6 @@ class ModuloEconomia:
         plt.title(f"Engorde del {datos_lote['lote']}")
         plt.show()
 
-
-        # =========================
-        # GRÁFICO MORTALIDAD
-        # =========================
 
         plt.bar(
             ["Inicial", "Final"],
@@ -92,10 +71,6 @@ class ModuloEconomia:
         plt.title(f"Mortalidad del {datos_lote['lote']}")
         plt.show()
 
-
-        # =========================
-        # CONSUMO TOTAL ALIMENTO
-        # =========================
 
         print(
             "Consumo total de alimento:",
@@ -111,10 +86,6 @@ class ModuloEconomia:
             print("No hay datos registrados.")
             return
 
-
-        # =========================
-        # TABLA COMPARATIVA
-        # =========================
 
         df = pd.DataFrame([
 
@@ -134,10 +105,6 @@ class ModuloEconomia:
         print(df)
 
 
-        # =========================
-        # COMPARACIÓN ENTRE LOTES
-        # =========================
-
         plt.bar(
             df["Lote"],
             df["Rentabilidad"]
@@ -147,12 +114,6 @@ class ModuloEconomia:
         plt.ylabel("Ganancia Neta")
 
         plt.show()
-
-
-# =========================
-# EJEMPLO DE PRUEBA LOCAL
-# =========================
-
 
 ejemplo_datos = {
 
